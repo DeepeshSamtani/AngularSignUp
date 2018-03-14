@@ -1,0 +1,49 @@
+<p>
+  home works!
+</p>
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1 class="jumbotron text-center">
+    Welcome ! ! !
+  </h1>
+  <br/>
+  <p class="text-primary" *ngIf="paraFlag">
+    This is my first Paragraph to display. This is the only paragraph.This is my first Paragraph to display. This is the only
+    paragraph.This is my first Paragraph to display. This is the only paragraph.This is my first Paragraph to display. This
+    is the only paragraph.This is my first Paragraph to display. This is the only paragraph.This is my first Paragraph to
+    display. This is the only paragraph.This is my first Paragraph to display. This is the only paragraph.This is my first
+    Paragraph to display. This is the only paragraph.This is my first Paragraph to display. This is the only paragraph.
+  </p>
+
+  <!-- <p class="{{(this.hoverFlag) ? 'text-info' : ''}}"> -->
+  <p [class]="textProp">
+    {{dateText}}
+  </p>
+
+  <button class="btn btn-info" (click)="togglePara()">
+    {{(paraFlag) ? 'hide' : 'show'}}
+  </button>
+
+  <button class="btn btn-primary" (mouseover)="seeDate()" (mouseout)="resetText()">
+    See Date
+  </button>
+
+  <br/>
+
+  <div class="container">
+    <ul class="list-group">
+      <li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let hobby of hobbies;let i = index">
+        {{hobby}}
+        <span class="badge badge-primary badge-pill">
+          <i class="fa fa-trash" (click)="deleteHobby(i)"></i>
+        </span>
+      </li>
+    </ul>
+    <br/>
+    <div class="form-group">
+      <input class="form-control" type="text" name="newHobby" placeHolder="Enter Hobby here" id="newHobby" [(ngModel)]="newHobby">
+    </div>
+
+    <button class="btn btn-success" (click)="addHobby()">Add Hobby</button>
+    <button class="btn btn-warning" (click)="resetHobby()">Reset Hobby</button>
+  </div>
