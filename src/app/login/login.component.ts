@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { User } from '../User';
-
+import {AuthService} from '../auth.service';
 
 @Component({
   selector: 'login-root',
@@ -13,7 +13,7 @@ export class LoginComponent {
   user: User;
   loginStatus: number;
 
-  constructor() {
+  constructor(public auth:AuthService) {
     this.user = new User();
     this.loginStatus = -1;
   }
@@ -21,8 +21,11 @@ export class LoginComponent {
 
   signUp(userForm) {
     console.log(userForm.form);
-    if (userForm.form.value.email == "deepesh@gmail.com" && userForm.form.value.password == "1234567")
-      this.loginStatus = 1;
+    if (userForm.form.value.email == "sammy3012" && userForm.form.value.password == "1234567")
+   {   this.loginStatus = 1;
+      this.auth.setLoginCode(1);
+      this.auth.setCurrentUser(this.user.email);
+  }
     else
       this.loginStatus = 0
   }

@@ -1,23 +1,22 @@
-<p>
-    login works!
-  </p>
-  <div class="container">
+  <div class="container" >
       <br>
       <form #userForm="ngForm" (ngSubmit)="signUp(userForm)" novalidate>
         <fieldset>
           <h2 class="jumbotron text-center">Enter details to register with us</h2>
     
-
+      <div class="col-sm-6">
           <div class="form-group row">
-              <label for="password" class="col-sm-2 col-form-label">Name</label>
+              <label for="name" class="col-sm-2 col-form-label">Name</label>
               <div class="col-sm-10">
                 <input type="text" class="form-control" id="name" name="name" placeholder="Enter Name" [(ngModel)]="user.name"
-                  required minlength="6" #password="ngModel" [ngModelOptions]="{updateOn: 'change'}">
-                <div [hidden]="password.pristine || password.valid" class="alert alert-danger">
+                  required minlength="6" #name="ngModel" [ngModelOptions]="{updateOn: 'change'}">
+                <div [hidden]="name.pristine || name.valid" class="alert alert-danger">
                   Enter Valid name
                 </div>
               </div>
             </div>
+
+            
 
           <div class="form-group row">
             <label for="email" class="col-sm-2 col-form-label">Email</label>
@@ -40,7 +39,30 @@
               </div>
             </div>
           </div>
-    
+
+          <div class="form-group row">
+              <label for="rePassword" class="col-sm-2 col-form-label">Re Password</label>
+              <div class="col-sm-10">
+                <input type="password" class="form-control" id="rePassword" name="rePassword" placeholder="Enter Password Again" [(ngModel)]="user.rePassword"
+                  required minlength="6" #rePassword="ngModel" [ngModelOptions]="{updateOn: 'change'}">
+                <div [hidden]="rePassword.pristine || rePassword.valid" class="alert alert-danger">
+                  Password should be at least 6 characters long
+                </div>
+              </div>
+            </div>
+          
+
+          <div class="form-group row">
+            <label for="contact" class="col-sm-2 col-form-label">Contact</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="contact" name="contact" placeholder="Enter Mobile Number" [(ngModel)]="user.password"
+                required minlength="10" maxlength="10" #password="ngModel" [ngModelOptions]="{updateOn: 'change'}">
+              <div [hidden]="password.pristine || password.valid" class="alert alert-danger">
+                Password should be at least 6 characters long
+              </div>
+            </div>
+          </div>
+    </div>
           <p class='text-center'>
             <button type="submit" [disabled]="userForm.form.invalid" class="btn btn-success col-sm-2">
               Submit</button>
@@ -50,7 +72,9 @@
         </fieldset>
       </form>
     </div>
-    
+    <div class="container">
+      <br/>
+    </div>
     <div class="container">
       <div *ngIf="loginStatus == 1" class="alert alert-success">
         <p class="text-center">Congrats ! Login Successfull.</p>
@@ -60,3 +84,4 @@
         <p class="text-center">Sorry ! Login credentials invalid.</p>
       </div>
     </div>
+  

@@ -8,11 +8,15 @@ import { FormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
- import { NavbarComponent } from './navbar/navbar.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
+import {AuthService} from './auth.service';
+import { BasepageComponent } from './basepage/basepage.component';
 
 const appRoutes:Routes = [
-  {path:'', component:HomeComponent},
+
+  {path:'', component:BasepageComponent},
+  {path:'home', component:HomeComponent},
   {path:'login', component:LoginComponent},
   {path:'register', component:RegisterComponent}
 ]
@@ -23,14 +27,15 @@ const appRoutes:Routes = [
      HomeComponent,
      RegisterComponent,
      LoginComponent,
-      NavbarComponent
+      NavbarComponent,
+      BasepageComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {FormsModule} from '@angular/forms';
+import {ApiService} from '../api.service';
 
 @Component({
   selector: 'home-root',
@@ -7,6 +8,7 @@ import {FormsModule} from '@angular/forms';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
+  users;
   paraFlag:boolean;
   dateText:String;
   hoverFlag:boolean;
@@ -15,7 +17,7 @@ export class HomeComponent {
   per:number;
   newHobby:string;
 
-  constructor(){
+  constructor(public api:ApiService){
     this.paraFlag = true;
     this.dateText="Hover on your button to see current date";
     this.hobbies=['reading','cricket','soccer','swimming']
@@ -52,5 +54,12 @@ export class HomeComponent {
 
   increaseBar(){
     (this.per<100) ? this.per+=25 : this.per;
+  }
+
+  ngOnInit(){
+    this.api.getUsers().subscribe(res => {
+      this.users = res;
+      console.log(this.users);
+    });
   }
 }
