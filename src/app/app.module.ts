@@ -23,7 +23,9 @@ const appRoutes:Routes = [
   {path:'home', component:HomeComponent},
   {path:'login', component:LoginComponent},
   {path:'register', component:RegisterComponent},
-  {path:'posts', component:PostsComponent}
+  {path:'posts', component:PostsComponent},
+  {path:'dynamic', component:DynamicPageComponent}
+  
 ]
 
 @NgModule({

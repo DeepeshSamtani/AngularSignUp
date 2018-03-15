@@ -3,7 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { User } from '../User';
 import {AuthService} from '../auth.service';
 import { ApiService } from '../api.service';
-
+import {Router} from '@angular/router';
 @Component({
   selector: 'login-root',
   templateUrl: './login.component.html',

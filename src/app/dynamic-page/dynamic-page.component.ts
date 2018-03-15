@@ -6,10 +6,25 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dynamic-page.component.css']
 })
 export class DynamicPageComponent implements OnInit {
+  fields:string[];
+  data:string[];
 
-  constructor() { }
+  viewList: boolean;
+
+  constructor() { 
+    this.fields=[];
+    this.data=[];
+  }
 
   ngOnInit() {
   }
 
+  addFiels() {
+    this.fields.push("");
+    this.data.push("");
+  }
+
+  view(){
+    this.viewList = true;
+  }
 }
