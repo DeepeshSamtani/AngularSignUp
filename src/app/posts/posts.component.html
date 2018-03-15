@@ -1,0 +1,19 @@
+<br/>
+ <p class="text-center" *ngIf ="progressFlag">
+  <i class="fa fa-circle-o-notch fa-5x fa-spin"></i>
+ </p>
+
+ <div class="container">
+   <div class="card text-primary bg-light mb-3" *ngFor="let post of posts">
+     <div class="card-header">
+       #{{post.id}}
+     </div>
+     <div class="card-body">
+       <h4 class="card-title">{{post.title}}</h4>
+       <p class="card-text">{{post.body}}</p>
+     </div>
+     <div class="card-footer text-muted">
+       2 days ago...
+     </div>
+   </div>
+ </div>

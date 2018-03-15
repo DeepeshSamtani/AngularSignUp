@@ -8,7 +8,7 @@ import {ApiService} from '../api.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
-  users;
+  users: any[];
   paraFlag:boolean;
   dateText:String;
   hoverFlag:boolean;
